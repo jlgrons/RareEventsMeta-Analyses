@@ -1,3 +1,5 @@
+library(meta)
+
 #' Comparison methods.
 CompMethods <- function(data){
 

@@ -1,11 +1,12 @@
-# Covid analysis
+# Face mask analysis
 
-setwd('~/Documents/GitHub/RareEventsMeta/Simulations/Data')
+setwd('~/Documents/GitHub/RareEventsMeta-Analyses/Real Data Examples')
 
+my_data <- read.csv('FaceMaskStudy.csv')
 
-my_data<- read.csv('distance.csv')
 n1 <-  my_data[, 'Further_Total']
 e1 <- my_data[, 'Further_Events']
+
 n2 <-  my_data[, 'Shorter_Total']
 e2 <- my_data[, 'Shorter_Events']
 
@@ -14,14 +15,17 @@ dim(distance_data)
 colnames(distance_data) <- c("size_1", "events_1",
                                 "size_2", "events_2")
 
+# Run this line if you do not have the XRRmeta package:
+# devtools::install_github(repo = "zrmacc/RareEventsMeta/RareEventsMeta")
+library(RareEventsMeta)
 
 # Library for comparison methods.
-library(meta)
-source("comp_methods.R")
+# Run this line if you do not have this package: install.packages('meta')
+source("ComparisonMethods.R")
 
-##### ##### ##### ########
-##### distance Analysis #####
-##### ##### ##### ########
+##### ##### ##### ######## ###
+##### Face Mask Analysis #####
+##### ##### ##### ######## ##
 
 # Run comparison methods.
 distance_comp <- CompMethods(distance_data)
@@ -31,10 +35,9 @@ distance_data_dzr <- distance_data[ ! ((distance_data[, 'events_1'] == 0) &
                                    (distance_data[, 'events_2'] == 0)),]
 dim(distance_data_dzr)
 
-# Run XRRmeta - change defaults for this and adjust nu stepsize, add pvalue option.
 
 # Library.
-library(RareEventsMeta)
+
 MomentEst(events_1 = distance_data_dzr[, 'events_1'],
           size_1 = distance_data_dzr[, 'size_1'],
           events_2 = distance_data_dzr[, 'events_2'],
