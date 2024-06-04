@@ -8,10 +8,7 @@ library(meta)
 # Don't drop double zero studies from meta-analysis - use this updated
 # data generation function.
 
-source("~/Documents/GitHub/RareEventsMeta/RareEventsMeta/R/data_gen3.R")
-
-
-setwd("/Users/jgrons/Documents/GitHub/RareEventsMeta/Simulations/")
+setwd("~/Documents/GitHub/RareEventsMeta/RareEventsMeta-Analyses/Simulations/")
 
 # -----------------------------------------------------------------------------
 # Unpack simulation settings.
