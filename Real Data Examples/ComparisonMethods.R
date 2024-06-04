@@ -118,6 +118,8 @@ CompMethods <- function(data){
                        IncludeNull(all_CIs[xx, ],
                                    null_val = 1)))
 
+  colnames(all_CIs_e) <- c('PtEst', 'Lower', 'Upper', 'pValue',
+                           'Length', 'IncludeH0')
   return(all_CIs_e)
 }
 
